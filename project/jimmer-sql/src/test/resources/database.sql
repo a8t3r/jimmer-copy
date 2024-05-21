@@ -47,6 +47,7 @@ drop table country if exists;
 drop table book_store if exists;
 drop table tree_node if exists;
 drop table array_model if exists;
+drop table uuid_to_varchar_id_model if exists;
 drop sequence file_user_id_seq if exists;
 drop sequence file_id_seq if exists;
 drop sequence tree_node_id_seq if exists;
@@ -959,8 +960,13 @@ insert into array_model(id, integers, ints, strings, bytes, longs, uuids, floats
     array[3.0, 2.0, 1.0]
 );
 
-
-
+create table uuid_to_varchar_id_model(
+    id varchar(36) not null
+);
+alter table uuid_to_varchar_id_model
+    add constraint pk_uuid_to_varchar_id_model
+        primary key(id)
+;
 
 create table shop(
     id bigint not null,
