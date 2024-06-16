@@ -1,9 +1,6 @@
 package org.babyfish.jimmer.sql.kt.model.link
 
-import org.babyfish.jimmer.sql.Entity
-import org.babyfish.jimmer.sql.Id
-import org.babyfish.jimmer.sql.ManyToManyView
-import org.babyfish.jimmer.sql.OneToMany
+import org.babyfish.jimmer.sql.*
 
 @Entity
 interface Student {
@@ -18,4 +15,7 @@ interface Student {
 
     @ManyToManyView(prop = "learningLinks")
     val courses: List<Course>
+
+    @LogicalDeleted("true")
+    val deleted: Boolean
 }

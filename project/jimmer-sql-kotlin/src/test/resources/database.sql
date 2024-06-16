@@ -498,7 +498,8 @@ insert into ms_order_item_product_mapping(order_item_id, product_id) values
 
 create table student(
     id bigint not null,
-    name varchar(20) not null
+    name varchar(20) not null,
+    deleted boolean not null default false
 );
 alter table student
     add constraint pk_student
@@ -507,7 +508,8 @@ alter table student
 create table course(
     id bigint not null,
     name varchar(20) not null,
-    academic_credit int not null
+    academic_credit int not null,
+    deleted boolean not null default false
 );
 alter table course
     add constraint pk_course
